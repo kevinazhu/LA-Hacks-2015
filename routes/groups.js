@@ -3,7 +3,9 @@ var connection = mysql.createConnection({
     host : '104.236.199.139',
     user : 'root',
     password : 'k3AHc3DruW',
-    database : 'la'
+    database : 'la',
+    port : 3306,
+    socket : '/var/run/mysqld/mysqld.sock'
 });
 
 connection.connect(function(err) {
