@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/">
-<link rel="stylesheet" href="/stylesheets/group.css">
-</head>
-<body>
-</body>
-</html>
+doctype html
+html
+    head
+        link(href="/bower_components/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
+        link(rel="stylesheet", href="/stylesheets/group.css")
+    body
+
+        div.nav
+            div.container
+                ul.pull-right
+                    li
+                        a(href="#") About us
+
+        div.groupList
+            div.row
+                div.col-md-1
+                div.col-md-4
+                    h3 Name1
+                    p This is a description for group number 1
+                    h5 12/20
+                div.col-md-2
+                div.col-md-4
+                    h3 Name2
+                    p This is a description for group number 2
+                    h5 12/20
