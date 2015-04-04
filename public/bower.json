@@ -1,0 +1,16 @@
+{
+  "name": "LA-Hacks-2015",
+  "version": "1.0.0",
+  "description": "chat thing?",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
+}
