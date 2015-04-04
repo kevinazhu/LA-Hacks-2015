@@ -1,0 +1,14 @@
+doctype html
+html(ng-app="loginApp")
+  head
+    title= title
+    link(href="/bower_components/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
+    script(src="/bower_components/angular/angular.min.js")
+    script(src="https://cdn.respoke.io/respoke.min.js")
+  body
+    h1= title
+    form(ng-controller='loginCtrl', ng-submit="login()")
+        input(type="text", placeholder="Username", name="username", id="username", ng-model="connectionStatus")
+        br
+        button.btn.btn-large.btn-primary(type="submit") Login
+        h3(ng-bind="connectionStatus")

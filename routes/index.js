@@ -6,8 +6,8 @@ router.get('/', function(req, res) {
     res.render('index', { title: 'Express' });
 });
 
-router.get('/chat', function(req, res) {
-  res.render('chat', { title: 'Respoke Chat' });
+router.get('/login', function(req, res) {
+  res.render('login', { title: 'Respoke Login' });
 });
 
 module.exports = router;
