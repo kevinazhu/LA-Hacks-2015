@@ -4,15 +4,15 @@ chat_app.controller('chatCtrl', function($scope, $http) {
     var client = respoke.createClient();
 
     $http.get('/token')
-        .success(function(data) {
-            console.log("Got Token");
-            client.connect({
-                token: data.token // your username is the endpoint
-            });
-        })
-        .error(function(){
-            console.log("TOKEN POST ERROR");
+    .success(function(data) {
+        console.log("Got Token");
+        client.connect({
+            token: data.token // your username is the endpoint
         });
+    })
+    .error(function(){
+        console.log("TOKEN POST ERROR");
+    });
 
     var group;
     var groupId = "test";
@@ -31,26 +31,41 @@ chat_app.controller('chatCtrl', function($scope, $http) {
                 $scope.$digest();
             },
             onMessage: function(evt) {
-                $("#messages").append(
-                    "<li>" + evt.message.endpointId + ": " + evt.message.message + "</li>"
-                );
+                if(evt.message.message != "")
+                {
+                    $("#messages").append(
+                        "<li>" + evt.message.endpointId + ": " + evt.message.message + "</li>"
+                    );
+                }
             }
         });
     });
 
-    $("#sendMessage").click(function (){
+    $(function() {
+        $("#textToSend").keypress(function (e) {
+            if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+                $scope.sendMessage();
+                return false;
+            } else {
+                return true;
+            }
+        });
+    });
+
+    $scope.sendMessage = function() {
         // grab the text to send
         var messageText = $("#textToSend").val();
+        if(messageText != "")
+        {
+            // send it
+            group.sendMessage({ message : messageText });
 
-        // send it
-        group.sendMessage({ message : messageText });
-
-        // show yourself the message
-        $("#messages").append(
-            "<li>" + $scope.user + ": " + messageText + "</li>"
-        );
-
+            // show yourself the message
+            $("#messages").append(
+                "<li>" + $scope.user + ": " + messageText + "</li>"
+            );
+        }
         // clear the text you just sent
         $("#textToSend").val('');
-    });
+    };
 });
