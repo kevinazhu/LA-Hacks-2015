@@ -89,6 +89,10 @@ group_app.controller('makeGroupCtrl', function($scope, $http){
             .error(function(){
                 console.log("POST ERROR");
             });
-
     }
+    $scope.showLoginModal = function() {
+        $('#loginModal').modal({
+            show: true
+        })
+    };
 });

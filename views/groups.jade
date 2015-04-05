@@ -4,9 +4,9 @@
 <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/stylesheets/group.css">
 <script src="/bower_components/angular/angular.min.js"></script>
-<script src="/javascripts/group.js"></script>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/groups.js"></script>
 </head>
 <body>
 title= title
@@ -23,7 +23,7 @@ title= title
 <div class="col-md-12">
 <div class="createGroupButton">
 <button id = "1" type="button" class="btn btn-success btn-lg">Create New Group</button>
-<div style="display:none">
+<div style="display:none" id="createGroupArea">
 <div class="col-md-4"></div>
 <div class="col-md-4">
 <h3 > Create a group </h3>
@@ -43,6 +43,7 @@ title= title
 <br>
 <br>
 <button type="button" class="btn btn-success btn-lg" ng-click="makeGroup()">Create!</button>
+<button type="button" id="cancelCreateGroup" class="btn btn-danger btn-lg">Cancel</button>
 </div>
 <div class="col-md-4"></div>
 
@@ -53,22 +54,21 @@ title= title
 
 script.
     $("button").click(function() {
-        $("div").show("slow");
+        $("#createGroupArea").show("slow");
+    });
+    $("#cancelCreateGroup").click(function() {
+        $("#createGroupArea").hide("slow");
     });
 
 <div class="groupList" ng-controller='groupCtrl'>
 <div class="row">
-<div ng-repeat="group in groups" class="col-md-5">
-<a href ="#">
+<div ng-repeat="group in groups">
+<button class="col-md-5">
 <h3>{{group.GroupID}}</h3>
 <h5>{{group.Description}}</h5>
-</a>
-</div>
-
-
+</button>
 </div>
 </div>
-
-<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</div>
 
 </body>
