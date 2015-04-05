@@ -1,0 +1,35 @@
+body {
+    background-image: url("/images/confectionary.png");
+    background-repeat: repeat;
+    width:95%;
+    height:95%;
+}
+
+.nav a {
+    color: #5a5a5a;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 14px 10px;
+    text-transform: uppercase;
+}
+
+.nav li {
+    display: inline;
+}
+
+.col-md-3 p {
+    font-family: 'Shift', sans-serif;
+}
+
+.col-md-3 h2 {
+    font-family: 'Shift', sans-serif;
+    text-align: center;
+}
+
+
+.picture{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    right: -30px;
+}

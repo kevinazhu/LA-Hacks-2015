@@ -7,6 +7,10 @@ var mysql = require('mysql');
 router.get('/', function(req, res) {
     res.render('index', { title: 'Landing Page' });
 });
+/* GET about us */
+router.get('/aboutus', function(req, res) {
+    res.render('aboutus', { title: 'About Us' });
+});
 
 router.post('/trytologin', function(req, res) {
     req.session.user = req.body.username;
