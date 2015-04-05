@@ -35,6 +35,9 @@ chat_app.controller('chatCtrl', function($scope, $http) {
                     $("#messages").append(
                         "<li>" + evt.message.endpointId + ": " + evt.message.message + "</li>"
                     );
+
+                    var objDiv = document.getElementById("messages");
+                    objDiv.scrollTop = objDiv.scrollHeight;
                 }
             }
         });
@@ -55,8 +58,8 @@ chat_app.controller('chatCtrl', function($scope, $http) {
         // grab the text to send
         var messageText = $("#textToSend").val();
 
-	messageText = messageText.replace(/</g, "&lt;");
-	messageText = messageText.replace(/>/g, "&gt;");
+        messageText = messageText.replace(/</g, "&lt;");
+    	messageText = messageText.replace(/>/g, "&gt;");
 
         if(messageText != "")
         {
@@ -67,6 +70,9 @@ chat_app.controller('chatCtrl', function($scope, $http) {
             $("#messages").append(
                 "<li>" + $scope.user + ": " + messageText + "</li>"
             );
+
+            var objDiv = document.getElementById("messages");
+            objDiv.scrollTop = objDiv.scrollHeight;
         }
         // clear the text you just sent
         $("#textToSend").val('');
