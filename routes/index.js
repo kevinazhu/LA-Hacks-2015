@@ -8,18 +8,10 @@ router.get('/', function(req, res) {
     res.render('index', { title: 'Landing Page' });
 });
 
-router.get('/login', function(req, res) {
-    if(req.session.user)
-        res.redirect('/chat');
-    else
-        res.render('login', { title: 'Respoke Login' });
-});
-
 router.post('/trytologin', function(req, res) {
     req.session.user = req.body.username;
     res.status(200).end();
 });
-
 
 router.post('/querySQL', function(req, res) {
     //req.body.name == data
@@ -85,7 +77,7 @@ router.get('/chat', function(req, res) {
     if(req.session.user)
         res.render('chat', { title: 'Chat Page', user: req.session.user });
     else
-        res.redirect('/login');
+        res.redirect('/groups');
 });
 
 router.get('/token', function(req, res) {
