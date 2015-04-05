@@ -8,6 +8,7 @@ var connection = mysql.createConnection({
     socket : '/var/run/mysqld/mysqld.sock'
 });
 
+
 connection.connect(function(err) {
     if(err)
 	console.log(err);

@@ -1,25 +1,74 @@
-doctype html
-html
-    head
-        link(href="/bower_components/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
-        link(rel="stylesheet", href="/stylesheets/group.css")
-    body
+<!DOCTYPE html>
+<html ng-app="groupApp">
+<head>
+<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/group.css">
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/javascripts/group.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+</head>
+<body>
 
-        div.nav
-            div.container
-                ul.pull-right
-                    li
-                        a(href="#") About us
+<div class="nav">
+<div class="container">
+<ul class="pull-right">
+<li><a href="#">About us</a></li>
+</ul>
+</div>
+</div>
 
-        div.groupList
-            div.row
-                div.col-md-1
-                div.col-md-4
-                    h3 Name1
-                    p This is a description for group number 1
-                    h5 12/20
-                div.col-md-2
-                div.col-md-4
-                    h3 Name2
-                    p This is a description for group number 2
-                    h5 12/20
+<div class="createGroup" ng-controller="makeGroupCtrl">
+<div class="col-md-12">
+<div class="createGroupButton">
+<button id = "1" type="button" class="btn btn-success btn-lg">Create New Group</button>
+<div style="display:none">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+<h3 > Create a group </h3>
+<p>Group Name: </p>
+<input type="text" class="form-control" id="groupName">
+<br>
+<p>Description (optional): </p>
+<textarea class="form-control" rows="5" id="groupDescription"></textarea>
+<br>
+
+<p>Choose Group Range(miles):</p>
+<select id="range">
+<option>0.25</option>
+<option>0.5</option>
+<option>1</option>
+</select>
+<br>
+<br>
+<button type="button" class="btn btn-success btn-lg" ng-click="makeGroup()">Create!</button>
+</div>
+<div class="col-md-4"></div>
+
+</div>
+</div>
+</div>
+</div>
+
+<script>
+$("button" ).click(function() {
+$( "div" ).show( "slow" );
+});
+</script>
+
+<div class="groupList" ng-controller='groupCtrl'>
+<div class="row">
+<div ng-repeat="group in groups" class="col-md-5">
+<a href ="#">
+<h3>{{group.GroupID}}</h3>
+<h5>{{group.Description}}</h5>
+</a>
+</div>
+
+
+</div>
+</div>
+
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>

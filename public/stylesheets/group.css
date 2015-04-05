@@ -1,9 +1,26 @@
-.groupList .col-md-4 {
+body {
+    background-image: url("/images/confectionary.png");
+    background-repeat: repeat;
+}
+
+.stretch {
+    width:100%;
+    height:100%;
+}
+.createGroup {
+    text-align: center;
+}
+
+.groupList .col-md-5 {
     border: 2px solid #afafaf;
     border-radius: 25px;
     background-color: #dfdfdf;
     text-align: center;
-
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: 'Shift', sans-serif;
 }
 
 .nav a {
@@ -17,3 +34,4 @@
 .nav li {
     display: inline;
 }
+
