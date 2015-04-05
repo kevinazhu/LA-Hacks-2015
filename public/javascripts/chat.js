@@ -55,6 +55,10 @@ chat_app.controller('chatCtrl', function($scope, $http) {
     $scope.sendMessage = function() {
         // grab the text to send
         var messageText = $("#textToSend").val();
+
+	messageText = messageText.replace(/</g, "&lt;");
+	messageText = messageText.replace(/>/g, "&gt;");
+
         if(messageText != "")
         {
             // send it
@@ -69,3 +73,17 @@ chat_app.controller('chatCtrl', function($scope, $http) {
         $("#textToSend").val('');
     };
 });
+
+
+var blacklist = ["<script>"];
+
+function checkBL(word) {
+    found = false;
+    blacklist.forEach(function(i) {
+	if(word.indexOf(i) > -1) {
+	    found = true;
+	}
+    });
+
+    return found;
+}
