@@ -16,9 +16,12 @@ html(ng-app="chatApp")
     <ul class="sidebar-nav">
     <li class="sidebar-brand">
     <a href="#">
-    Start Bootstrap
+    h3 Welcome {{user}}!
     </a>
+
+    h4(class="usersTitle") users
     </li>
+    br
     <li>
     <a href="#">Dashboard</a>
     </li>
@@ -46,11 +49,13 @@ html(ng-app="chatApp")
     div(class="nav")
       div(class="container")
         ul(class="pull-right")
-          <button type="button" class="btn btn-success btn-md">Back to Group Page</button>
+          <a href="/groups">
+          <button type="button" class="btn btn-success btn-md" id="backButton">Back to Group Page</button>
+          </a>
     h2(class="title") {{ groupName }}
 
     div(class="messaging")
       ul(id="messages")
       form(ng-submit="sendMessage()")
         textarea(id="textToSend", rows="1")
-        button.btn.btn-primary(id='sendMessage', type="submit") Send Message
+        button.btn.btn-primary(class='sendMessage', type="submit") Send
