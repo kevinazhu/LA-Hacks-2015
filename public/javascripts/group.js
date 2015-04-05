@@ -44,14 +44,17 @@ function makeGroup() {
     var groupName = document.getElementById('groupName').value;
     if(groupName === ""){
         alert("Group Name field required");
+        return;
     }
     var groupDescription = document.getElementById('groupDescription').value;
     var maxUsers = document.getElementById('maxUsers').value;
     if(maxUsers === ""){
         alert("Please enter max number of users for your group");
+        return;
     }
     if(maxUsers <= 0){
         alert("Please enter a positive max number of users");
+        return;
     }
 
     var range = document.getElementById('range').value;
