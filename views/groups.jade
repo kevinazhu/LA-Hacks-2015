@@ -13,15 +13,15 @@ title= title
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller='loginCtrl'>
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" ng-controller='loginCtrl'>
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-<h4 class="modal-title" id="myModalLabel">Login</h4>
+<h4 class="modal-title" id="loginModalLabel">Login</h4>
 </div>
 <div class="modal-body">
-input(type="text", placeholder="Username", name="username", id="username", ng-model="form.username")
+input(type="text", placeholder="Username", name="username", id="username", ng-model="form.username", autofocus)
 </div>
 <div class="modal-footer">
 button.btn.btn-default(data-dismiss="modal") Close
@@ -42,7 +42,7 @@ button.btn.btn-large.btn-primary(ng-click="login()") Login
 <div class="createGroup" ng-controller="makeGroupCtrl">
 <div class="col-md-12">
 <div class="createGroupButton">
-<button id = "createNewGroupButton" type="button" class="btn btn-success btn-lg">Create New Group</button>
+<button id="createNewGroupButton" type="button" class="btn btn-success btn-lg">Create New Group</button>
 <div style="display:none" id="createGroupArea">
 <div class="col-md-4">
 <h3> Create a group </h3>

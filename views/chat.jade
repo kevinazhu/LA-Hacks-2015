@@ -58,5 +58,5 @@ html(ng-app="chatApp")
     div(class="messaging")
       ul(id="messages")
       form(ng-submit="sendMessage()")
-        textarea(id="textToSend", rows="1")
+        textarea(id="textToSend", rows="1", autofocus)
         button.btn.btn-primary(class='sendMessage', type="submit") Send
