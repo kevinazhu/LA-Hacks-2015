@@ -22,28 +22,8 @@ html(ng-app="chatApp")
 
     h4(class="usersTitle") users
     </li>
-    br
-    <li>
-    <a href="#">Dashboard</a>
-    </li>
-    <li>
-    <a href="#">Shortcuts</a>
-    </li>
-    <li>
-    <a href="#">Overview</a>
-    </li>
-    <li>
-    <a href="#">Events</a>
-    </li>
-    <li>
-    <a href="#">About</a>
-    </li>
-    <li>
-    <a href="#">Services</a>
-    </li>
-    <li>
-    <a href="#">Contact</a>
-    </li>
+    div(ng-repeat="connection in connections")
+        li {{ connection.getEndpoint().id }}
     </ul>
     </div>
     br
