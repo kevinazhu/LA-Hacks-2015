@@ -15,19 +15,18 @@ chat_app.controller('chatCtrl', function($scope, $http) {
     });
 
     var group;
-    var groupId = "test";
-    $scope.groupName = '';
+    $scope.groupId = groupId;
     $scope.user = user;
 
     // listen for the 'connect' event
     client.listen('connect', function () {
         console.log("Connected to Respoke");
+        console.log("Trying to join group: ", groupId);
         client.join({
             id: groupId,
             onSuccess: function (evt) {
                 console.log('I joined', evt.id);
                 group = evt;
-                $scope.groupName = group.id;
                 $scope.$digest();
             },
             onMessage: function(evt) {

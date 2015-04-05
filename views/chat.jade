@@ -9,6 +9,7 @@ html(ng-app="chatApp")
     script(src="https://cdn.respoke.io/respoke.min.js")
     script.
         var user = !{JSON.stringify(user)};
+        var groupId = !{JSON.stringify(groupId)};
     script(src="/javascripts/chat.js")
   body(ng-controller='chatCtrl')
     <div id="wrapper">
@@ -52,7 +53,7 @@ html(ng-app="chatApp")
           <a href="/groups">
           <button type="button" class="btn btn-success btn-md" id="backButton">Back to Group Page</button>
           </a>
-    h2(class="title") {{ groupName }}
+    h2(class="title") {{ groupId }}
 
     div(class="messaging")
       ul(id="messages")
