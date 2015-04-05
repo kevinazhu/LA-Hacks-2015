@@ -6,6 +6,7 @@
 <script src="/bower_components/angular/angular.min.js"></script>
 <script src="/javascripts/group.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 </head>
 <body>
 
@@ -17,10 +18,10 @@
 </div>
 </div>
 
-<div class="createGroup">
+<div class="createGroup" ng-controller="makeGroupCtrl">
 <div class="col-md-12">
 <div class="createGroupButton">
-<button type="button" class="btn btn-success btn-lg">Create New Group</button>
+<button id = "1" type="button" class="btn btn-success btn-lg">Create New Group</button>
 <div style="display:none">
 <div class="col-md-4"></div>
 <div class="col-md-4">
@@ -31,18 +32,16 @@
 <p>Description (optional): </p>
 <textarea class="form-control" rows="5" id="groupDescription"></textarea>
 <br>
-<p>Max Users:</p>
-<input type="text" class="form-control" id="maxUsers" value = '20'>
-<br>
-<p>Choose Group Range:</p>
+
+<p>Choose Group Range(miles):</p>
 <select id="range">
-<option>400m</option>
-<option>800m</option>
-<option>1600m</option>
+<option>0.25</option>
+<option>0.5</option>
+<option>1</option>
 </select>
 <br>
 <br>
-<button type="button" class="btn btn-success btn-lg" onClick="makeGroup()">Create!</button>
+<button type="button" class="btn btn-success btn-lg" ng-click="makeGroup()">Create!</button>
 </div>
 <div class="col-md-4"></div>
 
@@ -52,7 +51,7 @@
 </div>
 
 <script>
-$( "button" ).click(function() {
+$("button" ).click(function() {
 $( "div" ).show( "slow" );
 });
 </script>
@@ -61,9 +60,8 @@ $( "div" ).show( "slow" );
 <div class="row">
 <div ng-repeat="group in groups" class="col-md-5">
 <a href ="#">
-<h3>{{group.name}}</h3>
-<h5>{{group.description}}</h5>
-<h4>{{group.capacity}}</h4>
+<h3>{{group.GroupID}}</h3>
+<h5>{{group.Description}}</h5>
 </a>
 </div>
 
