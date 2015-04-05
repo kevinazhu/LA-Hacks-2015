@@ -26,7 +26,7 @@ group_app.controller('groupCtrl', function($scope, $http){
     }
 
     $scope.showLoginModal = function(index) {
-        $('#loginModal').modal('show')
+        $('#loginModal').modal('show');
         groupId = index;
     };
 
@@ -56,11 +56,18 @@ group_app.controller('makeGroupCtrl', function($scope, $http){
         $http.post('/insertSQL', { name: groupName, description: groupDescription, LBound:LBound, RBound:RBound, UBound:UBound, DBound:DBound})
             .success(function() {
                 //window.location = "/chat";
-                console.log("POST Succeeded");
+                console.log("Insert SQL POST Succeeded");
             })
             .error(function(){
-                console.log("POST ERROR");
+                console.log("Insert SQL POST ERROR");
             });
+
+        $('#loginModal').modal('show');
+        groupId = groupName;
+        
+        $('#loginModal').on('shown.bs.modal', function () {
+            $('#username').focus();
+        })
     }
 });
 
