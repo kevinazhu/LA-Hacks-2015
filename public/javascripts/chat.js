@@ -17,6 +17,7 @@ chat_app.controller('chatCtrl', function($scope, $http) {
     var group;
     $scope.groupId = groupId;
     $scope.user = user;
+    $scope.connections = [];
 
     // listen for the 'connect' event
     client.listen('connect', function () {
@@ -27,7 +28,29 @@ chat_app.controller('chatCtrl', function($scope, $http) {
             onSuccess: function (evt) {
                 console.log('I joined', evt.id);
                 group = evt;
+                group.getMembers({
+                    onSuccess: function (connections) {
+                        $scope.connections = connections;
+                        $scope.$digest();
+                    }
+                });
                 $scope.$digest();
+                group.listen('join', function () {
+                    group.getMembers({
+                        onSuccess: function (connections) {
+                            $scope.connections = connections;
+                            $scope.$digest();
+                        }
+                    });
+                });
+                group.listen('leave', function () {
+                    group.getMembers({
+                        onSuccess: function (connections) {
+                            $scope.connections = connections;
+                            $scope.$digest();
+                        }
+                    });
+                });
             },
             onMessage: function(evt) {
                 if(evt.message.message != "")
