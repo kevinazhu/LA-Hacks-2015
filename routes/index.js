@@ -83,7 +83,7 @@ router.post('/insertSQL', function(req, res) {
 
 router.get('/chat', function(req, res) {
     if(req.session.user)
-        res.render('chatTemp', { title: 'Chat Page', user: req.session.user });
+        res.render('chat', { title: 'Chat Page', user: req.session.user });
     else
         res.redirect('/login');
 });
@@ -121,8 +121,8 @@ router.get('/token', function(req, res) {
     });
 });
 
-router.get('/grouppage', function(req, res) {
-    res.render('grouppage', { title: 'Groups Page' });
+router.get('/groups', function(req, res) {
+    res.render('groups', { title: 'Groups Page' });
 });
 
 module.exports = router;
