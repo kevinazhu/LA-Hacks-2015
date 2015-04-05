@@ -11,13 +11,46 @@ html(ng-app="chatApp")
         var user = !{JSON.stringify(user)};
     script(src="/javascripts/chat.js")
   body(ng-controller='chatCtrl')
-    h1= title
-    h4 Group: {{ groupName }}
-    h4 Welcome {{ user }}
-    ul(id="messages")
+    <div id="wrapper">
+    <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+    <a href="#">
+    Start Bootstrap
+    </a>
+    </li>
+    <li>
+    <a href="#">Dashboard</a>
+    </li>
+    <li>
+    <a href="#">Shortcuts</a>
+    </li>
+    <li>
+    <a href="#">Overview</a>
+    </li>
+    <li>
+    <a href="#">Events</a>
+    </li>
+    <li>
+    <a href="#">About</a>
+    </li>
+    <li>
+    <a href="#">Services</a>
+    </li>
+    <li>
+    <a href="#">Contact</a>
+    </li>
+    </ul>
+    </div>
     br
-    form(ng-submit="sendMessage()")
-        p Message
-        textarea(id="textToSend", rows="2")
-        br
+    div(class="nav")
+      div(class="container")
+        ul(class="pull-right")
+          <button type="button" class="btn btn-success btn-md">Back to Group Page</button>
+    h2(class="title") {{ groupName }}
+
+    div(class="messaging")
+      ul(id="messages")
+      form(ng-submit="sendMessage()")
+        textarea(id="textToSend", rows="1")
         button.btn.btn-primary(id='sendMessage', type="submit") Send Message
