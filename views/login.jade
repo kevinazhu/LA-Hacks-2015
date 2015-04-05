@@ -4,7 +4,6 @@ html(ng-app="loginApp")
     title= title
     link(href="/bower_components/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
     script(src="/bower_components/angular/angular.min.js")
-    script(src="https://cdn.respoke.io/respoke.min.js")
     script(src="/javascripts/login.js")
   body
     h1= title
@@ -12,4 +11,3 @@ html(ng-app="loginApp")
         input(type="text", placeholder="Username", name="username", id="username", ng-model="form.username")
         br
         button.btn.btn-large.btn-primary(type="submit") Login
-        h3(ng-bind="connectionStatus")

@@ -61,6 +61,6 @@ function makeGroup() {
 
     var range = document.getElementById('range').value;
 
-    
+
 
 }
