@@ -9,7 +9,7 @@ html(ng-app="chatApp")
     script(src="https://cdn.respoke.io/respoke.min.js")
     script.
         var user = !{JSON.stringify(user)};
-    script(src="/javascripts/chatTemp.js")
+    script(src="/javascripts/chat.js")
   body(ng-controller='chatCtrl')
     h1= title
     h4 Group: {{ groupName }}
