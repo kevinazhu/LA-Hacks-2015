@@ -29,38 +29,10 @@ group_app.controller('groupCtrl', function($scope, $http){
                 console.log("POST ERROR");
             });
     }
-
-        /*[
-            {
-                name: 'Group 1',
-                description: 'jagairoei pizsa',
-                capacity: '1/10'
-            },
-            {
-                name: 'Group 2',
-                description: 'spegit nd meetbal',
-                capacity: '2/10'
-
-            },
-            {
-                name: 'Group 3',
-                description: 'u sukkk saucege',
-                capacity: '2/10'
-
-            },
-            {
-                name: 'Group 4',
-                description: 'niec dye',
-                capacity: '3/10'
-
-            },
-            {
-                name: 'Group 5',
-                description: 'wat teh fukkersssss',
-                capacity: '4/10'
-
-            }
-        ];*/
+    
+    $scope.showLoginModal = function() {
+        $('#myModal').modal('show')
+    };
 });
 
 group_app.controller('makeGroupCtrl', function($scope, $http){
@@ -90,9 +62,4 @@ group_app.controller('makeGroupCtrl', function($scope, $http){
                 console.log("POST ERROR");
             });
     }
-    $scope.showLoginModal = function() {
-        $('#loginModal').modal({
-            show: true
-        })
-    };
 });
