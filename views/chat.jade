@@ -3,12 +3,13 @@ html(ng-app="chatApp")
   head
     title= title
     link(href="/bower_components/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
-    link(href="/stylesheets/chatTemp.css", rel="stylesheet")
+    link(href="/stylesheets/chat.css", rel="stylesheet")
     script(src="/bower_components/angular/angular.min.js")
     script(src="/bower_components/jquery/dist/jquery.min.js")
     script(src="https://cdn.respoke.io/respoke.min.js")
     script.
         var user = !{JSON.stringify(user)};
+        var groupId = !{JSON.stringify(groupId)};
     script(src="/javascripts/chat.js")
   body(ng-controller='chatCtrl')
     <div id="wrapper">
@@ -52,10 +53,10 @@ html(ng-app="chatApp")
           <a href="/groups">
           <button type="button" class="btn btn-success btn-md" id="backButton">Back to Group Page</button>
           </a>
-    h2(class="title") {{ groupName }}
+    h2(class="title") {{ groupId }}
 
     div(class="messaging")
       ul(id="messages")
       form(ng-submit="sendMessage()")
-        textarea(id="textToSend", rows="1")
+        textarea(id="textToSend", rows="1", autofocus)
         button.btn.btn-primary(class='sendMessage', type="submit") Send

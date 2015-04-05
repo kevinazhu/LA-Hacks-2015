@@ -10,6 +10,7 @@ router.get('/', function(req, res) {
 
 router.post('/trytologin', function(req, res) {
     req.session.user = req.body.username;
+    req.session.groupId = req.body.groupId;
     res.status(200).end();
 });
 
@@ -75,7 +76,7 @@ router.post('/insertSQL', function(req, res) {
 
 router.get('/chat', function(req, res) {
     if(req.session.user)
-        res.render('chat', { title: 'Chat Page', user: req.session.user });
+        res.render('chat', { title: 'Chat Page', user: req.session.user, groupId: req.session.groupId });
     else
         res.redirect('/groups');
 });
@@ -88,8 +89,6 @@ router.get('/token', function(req, res) {
     }, function (err, authData) {
         if (err) { console.error(err); return; }
 
-        // Now we have a token for an end user to authenticate as an endpoint.
-        console.log(authData.tokenId); // "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
         var user = new Respoke({ appId: req.appId });
 
         user.auth.sessionToken({ tokenId: authData.tokenId }, function (err, sessionData) {
