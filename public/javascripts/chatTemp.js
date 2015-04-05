@@ -1,14 +1,18 @@
 var chat_app = angular.module('chatApp',[]);
 
-chat_app.controller('chatCtrl', function($scope) {
-    // here's the App ID value from the portal:
-    var appid = "7caf8bfa-47a2-4113-a899-1a4098174557";
+chat_app.controller('chatCtrl', function($scope, $http) {
+    var client = respoke.createClient();
 
-    // create a client object using the App ID value from Step 2
-    var client = respoke.createClient({
-        appId: appid,
-        developmentMode: true
-    });
+    $http.get('/token')
+        .success(function(data) {
+            console.log("Got Token");
+            client.connect({
+                token: data.token // your username is the endpoint
+            });
+        })
+        .error(function(){
+            console.log("TOKEN POST ERROR");
+        });
 
     var group;
     var groupId = "test";
@@ -17,7 +21,7 @@ chat_app.controller('chatCtrl', function($scope) {
 
     // listen for the 'connect' event
     client.listen('connect', function () {
-        console.log("CONNECTED");
+        console.log("Connected to Respoke");
         client.join({
             id: groupId,
             onSuccess: function (evt) {
@@ -32,10 +36,6 @@ chat_app.controller('chatCtrl', function($scope) {
                 );
             }
         });
-    });
-
-    client.connect({
-        endpointId: user // your username is the endpoint
     });
 
     $("#sendMessage").click(function (){

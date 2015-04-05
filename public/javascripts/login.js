@@ -7,7 +7,7 @@ login_app.controller('loginCtrl', function($scope, $http) {
                 window.location = "/chat";
             })
             .error(function(){
-                console.log("POST ERROR");
+                console.log("LOGIN POST ERROR");
             });
     }
 });

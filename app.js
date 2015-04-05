@@ -5,11 +5,36 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var Respoke = require('respoke-admin');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+
+// respoke setup
+var appId = "7caf8bfa-47a2-4113-a899-1a4098174557";
+var appSecret = "0fa05cfa-aa2b-4dbf-9e87-d3b9242cdcf0";
+
+var respoke = new Respoke({
+    appId: appId,
+    'App-Secret': appSecret
+});
+
+// connect to respoke
+// provide an `endpointId` for receiving messages
+respoke.auth.connect({ endpointId: "admin"});
+respoke.on('connect', function () {
+    console.log('admin is connected to respoke');
+});
+
+// Attaching respoke to request
+app.use(function (req, res, next) {
+    req.respoke = respoke;
+    req.appId = appId;
+    next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
