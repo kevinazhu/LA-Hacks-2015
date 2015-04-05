@@ -16,7 +16,8 @@ html(ng-app="chatApp")
     h4 Welcome {{ user }}
     ul(id="messages")
     br
-    p Message
-    textarea(id="textToSend", rows="2")
-    br
-    button(id='sendMessage') Send Message
+    form(ng-submit="sendMessage()")
+        p Message
+        textarea(id="textToSend", rows="2")
+        br
+        button.btn.btn-primary(id='sendMessage', type="submit") Send Message
