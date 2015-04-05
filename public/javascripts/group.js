@@ -1,3 +1,4 @@
+
 var group_app = angular.module("groupApp", []);
 
 var groupIDs = [1,2,3,4,5];
@@ -40,6 +41,7 @@ group_app.controller('groupCtrl', function($scope){
 
 });
 
+
 function makeGroup() {
     var groupName = document.getElementById('groupName').value;
     if(groupName === ""){
@@ -59,5 +61,6 @@ function makeGroup() {
 
     var range = document.getElementById('range').value;
 
+    
 
 }
