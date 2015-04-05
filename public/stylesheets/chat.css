@@ -70,6 +70,7 @@ body {
     color: #999999;
 }
 
+
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
@@ -81,8 +82,22 @@ body {
     text-decoration: none;
 }
 
+.user {
+    color: #999999;
+}
+
+.user:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#break {
+    height: 20px;
+}
+
+
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
+    height: 75px;
     font-size: 18px;
     line-height: 60px;
 }
@@ -160,9 +175,10 @@ body {
 
 .usernameTitle{
   font-size: 15px;
-
+  color: #999999;
 }
 .usersTitle{
   color: white;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
