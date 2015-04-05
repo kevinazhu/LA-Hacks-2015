@@ -1,4 +1,3 @@
-
 var group_app = angular.module("groupApp", []);
 var TICKS_PER_MILE = .008689;
 var lat;
@@ -29,7 +28,7 @@ group_app.controller('groupCtrl', function($scope, $http){
                 console.log("POST ERROR");
             });
     }
-    
+
     $scope.showLoginModal = function() {
         $('#myModal').modal('show')
     };
@@ -61,5 +60,17 @@ group_app.controller('makeGroupCtrl', function($scope, $http){
             .error(function(){
                 console.log("POST ERROR");
             });
+    }
+});
+
+group_app.controller('loginCtrl', function($scope, $http) {
+    $scope.login = function() {
+        $http.post('/trytologin', {username: $scope.form.username})
+        .success(function() {
+            window.location = "/chat";
+        })
+        .error(function(){
+            console.log("LOGIN POST ERROR");
+        });
     }
 });
