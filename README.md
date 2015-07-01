@@ -1,6 +1,8 @@
 # MixMi for LA Hacks 2015
 Created by Kevin Zhu, Jerry Zhao, Justin Teo, and Alec Brickner
 
+ChallengePost link with video: http://challengepost.com/software/mixmi-z5qft
+
 ## Inspiration
 Often times you find yourself experiencing things with a group of people, but no way to connect to them directly. Anything from being stuck in a class you can’t stand to seeing an amazing event at a stadium, this app has you covered.
 
